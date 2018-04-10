@@ -144,7 +144,4 @@ public class OffscreenClient : CefClient
     }
     #endregion
 
-    public class OffscreenCEFApp : CefApp
-    {
-    }
 }

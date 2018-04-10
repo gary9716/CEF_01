@@ -3,19 +3,18 @@ using System.Collections;
 
 public class GetBrowserTexture : MonoBehaviour {
 
-    public OffscreenCEF BrowserTextureSrc;
 
     private Material mMtl;
 
 	// Use this for initialization
 	void Start ()
     {
+		BaseCEFClient client = CEFManager.instance.CreateBrowser(null, "www.google.com");
         mMtl = GetComponent<MeshRenderer>().material;
-        mMtl.SetTexture("_MainTex", BrowserTextureSrc.BrowserTexture);
+        if(client != null && client.BrowserTexture != null) {
+			mMtl.SetTexture("_MainTex", client.BrowserTexture);
+		}
+		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

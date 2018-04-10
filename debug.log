@@ -78,3 +78,9 @@
 [0520/111811:ERROR:proxy_service_factory.cc(111)] Cannot use V8 Proxy resolver in single process mode.
 [0520/112103:ERROR:proxy_service_factory.cc(111)] Cannot use V8 Proxy resolver in single process mode.
 [0410/171256:ERROR:proxy_service_factory.cc(111)] Cannot use V8 Proxy resolver in single process mode.
+[0410/173903:ERROR:proxy_service_factory.cc(111)] Cannot use V8 Proxy resolver in single process mode.
+[0410/174002:FATAL:content_main_runner.cc(739)] Check failed: InitializeSandbox(params.sandbox_info). 
+[0410/174036:ERROR:proxy_service_factory.cc(111)] Cannot use V8 Proxy resolver in single process mode.
+[0410/195114:FATAL:content_main_runner.cc(739)] Check failed: InitializeSandbox(params.sandbox_info). 
+[0410/195235:ERROR:proxy_service_factory.cc(111)] Cannot use V8 Proxy resolver in single process mode.
+[0410/195351:FATAL:content_main_runner.cc(739)] Check failed: InitializeSandbox(params.sandbox_info). 
