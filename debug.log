@@ -77,3 +77,4 @@
 [0520/111703:ERROR:proxy_service_factory.cc(111)] Cannot use V8 Proxy resolver in single process mode.
 [0520/111811:ERROR:proxy_service_factory.cc(111)] Cannot use V8 Proxy resolver in single process mode.
 [0520/112103:ERROR:proxy_service_factory.cc(111)] Cannot use V8 Proxy resolver in single process mode.
+[0410/171256:ERROR:proxy_service_factory.cc(111)] Cannot use V8 Proxy resolver in single process mode.
