@@ -68,7 +68,7 @@ public class BaseCEFClient : CefClient {
 			mClient = client;
         }
 
-        protected override void OnLoadStart(CefBrowser browser, CefFrame frame)
+        protected override void OnLoadStart(CefBrowser browser, CefFrame frame, CefTransitionType transitionType)
         {
             Debug.Log("load handler load start...");
             if (browser != null) {
@@ -140,6 +140,15 @@ public class BaseCEFClient : CefClient {
         }
 
         protected override void OnScrollOffsetChanged(CefBrowser browser, double x, double y)
+        {
+        }
+
+        protected override CefAccessibilityHandler GetAccessibilityHandler()
+        {
+            return null;
+        }
+
+        protected override void OnImeCompositionRangeChanged(CefBrowser browser, CefRange selectedRange, CefRectangle[] characterBounds)
         {
         }
     }
