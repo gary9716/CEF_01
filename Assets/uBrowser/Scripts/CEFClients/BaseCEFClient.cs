@@ -19,7 +19,7 @@ public class BaseCEFClient : CefClient {
 	public BaseCEFClient(int pageWidth, int pageHeight) {
 		sPixelLock = new object();
         sPixelBuffer = new byte[pageWidth * pageHeight * 4];
-		BrowserTexture = new Texture2D(pageWidth, pageHeight);
+		BrowserTexture = new Texture2D(pageWidth, pageHeight, TextureFormat.RGBA32, false);
 		mLoadHandler = new BaseCEFClientLoadHandler(this);
 		mRenderHandler = new BaseCEFClientRenderHandler(this);
 	}

@@ -17,8 +17,4 @@ public class GetBrowserTexture : MonoBehaviour {
 		
 	}
 
-	private void OnDisable() {
-		mMtl.SetTexture("_MainTex", null);	
-	}
-	
 }

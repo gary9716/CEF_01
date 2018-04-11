@@ -38,7 +38,7 @@ public class CEFManager : MonoBehaviour
     
     public string locale = "en-US";
     private bool windowless = true;
-    public bool singleProcess = false;
+    public bool singleProcess = true;
     public bool multiThreaded = false;
 
     public bool JSRunnable = true;
@@ -67,7 +67,7 @@ public class CEFManager : MonoBehaviour
         var mainApp = new OffscreenCEFApp();
         var settings = new CefSettings
         {
-            Locale = locale,
+            //Locale = locale,
             MultiThreadedMessageLoop = multiThreaded,//注意：强烈建议设置成true,要不然你得在你的程序中自己处理消息循环；自己调用CefDoMessageLoopWork()
             SingleProcess = singleProcess,//注意：强烈不建议使用单进程，单进程不稳定，而且Chromium内核不支持
             WindowlessRenderingEnabled = windowless,

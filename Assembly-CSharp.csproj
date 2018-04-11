@@ -56,7 +56,6 @@
      <Compile Include="Assets\uBrowser\Scripts\CEFManager.cs" />
      <Compile Include="Assets\uBrowser\Scripts\GetBrowserTexture.cs" />
      <Compile Include="Assets\uBrowser\Scripts\LogUtilility.cs" />
-     <Compile Include="Assets\uBrowser\Scripts\OffscreenClient.cs" />
      <Compile Include="Assets\uBrowser\Scripts\RaycastTest.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
