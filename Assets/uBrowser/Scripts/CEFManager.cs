@@ -4,6 +4,8 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using Xilium.CefGlue;
 using System.Collections.Generic;
+using UnityEditor;
+using System.IO;
 
 [DisallowMultipleComponent]
 public class CEFManager : MonoBehaviour
@@ -38,8 +40,8 @@ public class CEFManager : MonoBehaviour
     
     public string locale = "en-US";
     private bool windowless = true;
-    public bool singleProcess = true;
-    public bool multiThreaded = false;
+    public bool singleProcess = false;
+    public bool multiThreaded = true;
 
     public bool JSRunnable = true;
     public int frameRate = 60;
@@ -61,10 +63,31 @@ public class CEFManager : MonoBehaviour
 
         registeredClients = new List<BaseCEFClient>();
 
-        CefRuntime.Load();
-        var mainArgs = new CefMainArgs(new string[] { });
+#if UNITY_EDITOR_WIN
+        string[] assetIDs = AssetDatabase.FindAssets("libcef");
+        string dllPath = null;
+        foreach(string assetID in assetIDs) {
+            string path = AssetDatabase.GUIDToAssetPath(assetID);
+            if(Path.GetExtension(path) == ".dll") {
+                dllPath = path;
+            }
+        }
         
+        if(dllPath == null)
+            return;
+
+        CefRuntime.Load(Path.GetDirectoryName(dllPath));
+#else
+        CefRuntime.Load();
+#endif
+        
+        var mainArgs = new CefMainArgs(new string[] { });
         var mainApp = new OffscreenCEFApp();
+
+        var exitCode = CefRuntime.ExecuteProcess(mainArgs, mainApp);
+        if (exitCode != -1)
+            return;
+        
         var settings = new CefSettings
         {
             //Locale = locale,
@@ -80,6 +103,7 @@ public class CEFManager : MonoBehaviour
         catch (Exception e) {
             Debug.LogError("cef initialization failed:" + e.Message);
         }
+        
         StartCoroutine("MessagePump");
 
         initialized = true;
@@ -133,6 +157,9 @@ public class CEFManager : MonoBehaviour
 
     public class OffscreenCEFApp : CefApp
     {
+        protected override void OnBeforeCommandLineProcessing(string processType, CefCommandLine commandLine)
+        {
+        }
     }
 }
 
